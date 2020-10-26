@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicGraphicApp", "MagicGraphicApp.csproj", "{F488AF65-987F-45C1-82CF-58F32A1A3A2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F488AF65-987F-45C1-82CF-58F32A1A3A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F488AF65-987F-45C1-82CF-58F32A1A3A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F488AF65-987F-45C1-82CF-58F32A1A3A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F488AF65-987F-45C1-82CF-58F32A1A3A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8736CC10-4419-46F8-9F70-65B2D40F9B2E}
+	EndGlobalSection
+EndGlobal
