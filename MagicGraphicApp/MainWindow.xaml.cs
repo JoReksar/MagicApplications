@@ -21,12 +21,17 @@ namespace MagicGraphicApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        Image image;
+        Rectangle rectangle;
+        Ellipse ellipse;
+        Polygon polygon;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void LoadImage() 
+        private void LoadImage()
         {
             OpenFileDialog dialog = new OpenFileDialog()
             {
@@ -37,38 +42,65 @@ namespace MagicGraphicApp
             {
                 Uri URI = new Uri(dialog.FileName, UriKind.Absolute);
                 ImageSource source = new BitmapImage(URI);
-                Image image = new Image()
+                image = new Image()
                 {
                     Source = source
                 };
-
-                var imageWindow = new WindowWithImage(image);
-                imageWindow.Show();
             }
         }
         private void LoadRectangle()
         {
-
+            rectangle = new Rectangle()
+            {
+                Stroke = Brushes.Black,
+                Width = 300,
+                Height = 300
+            };
         }
-
         private void LoadEllipse()
         {
-
+            ellipse = new Ellipse()
+            {
+                Stroke = Brushes.Black,
+                Width = 300,
+                Height = 300
+            };
         }
-
-        private void LoadLine()
-        {
-
-        }
-
         private void LoadPolygon()
         {
-
+            polygon = new Polygon()
+            {
+                Stroke = Brushes.Black,
+            };
         }
 
         private void ShowImage(object sender, RoutedEventArgs e)
         {
             LoadImage();
+
+            var imageWindow = new WindowWithImage(image);
+            imageWindow.Show();
+        }
+        private void ShowRectangle(object sender, RoutedEventArgs e)
+        {
+            LoadRectangle();
+
+            var rectangleWindow = new WindowWithRectangle(rectangle);
+            rectangleWindow.Show();
+        }
+        private void ShowEllipse(object sender, RoutedEventArgs e)
+        {
+            LoadEllipse();
+
+            var rectangleWindow = new WindowWithEllipse(ellipse);
+            rectangleWindow.Show();
+        }
+        private void ShowPolygon(object sender, RoutedEventArgs e)
+        {
+            LoadPolygon();
+
+            var rectangleWindow = new WindowWithPolygon(polygon);
+            rectangleWindow.Show();
         }
     }
 }

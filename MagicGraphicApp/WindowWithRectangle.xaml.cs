@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace MagicGraphicApp
 {
     /// <summary>
-    /// Логика взаимодействия для WindowWithImage.xaml
+    /// Логика взаимодействия для WindowwWithRectangle.xaml
     /// </summary>
-    public partial class WindowWithImage : Window
+    public partial class WindowWithRectangle : Window
     {
         TransformCollection _transforms = new TransformCollection()
         {
@@ -27,28 +27,28 @@ namespace MagicGraphicApp
             new TranslateTransform()
         };
         TransformGroup group;
-        Image currentImage;
+        Rectangle currentRectangle;
 
         double angle = 0.0,
-               skew = 0.0, 
-               scaleX = 1.0, 
+               skew = 0.0,
+               scaleX = 1.0,
                scaleY = 1.0,
                translateX = 0.0,
                translateY = 0.0;
 
-        public WindowWithImage(Image image)
+        public WindowWithRectangle(Rectangle rectangle)
         {
             InitializeComponent();
-            currentImage = image;
+            currentRectangle = rectangle;
 
-            currentImage.Width = Width / 4.0;
-            currentImage.Height = Height / 4.0;
+            currentRectangle.Width = Width / 4.0;
+            currentRectangle.Height = Height / 4.0;
             group = new TransformGroup() { Children = new TransformCollection(_transforms) };
-            currentImage.RenderTransform = group;
-            mainCanvas.Children.Add(currentImage);
+            currentRectangle.RenderTransform = group;
+            mainCanvas.Children.Add(currentRectangle);
         }
 
-        private void MovePicture(object sender, KeyEventArgs e)
+        private void MoveRectangle(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -78,7 +78,7 @@ namespace MagicGraphicApp
                     break;
                 default:
                     group = new TransformGroup() { Children = new TransformCollection(_transforms) };
-                    currentImage.RenderTransform = group;
+                    currentRectangle.RenderTransform = group;
                     angle = 0.0; skew = 0.0; scaleX = 1.0; scaleY = 1.0; translateX = 0.0; translateY = 0.0;
                     return;
             }

@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace MagicGraphicApp
 {
     /// <summary>
-    /// Логика взаимодействия для WindowWithImage.xaml
+    /// Логика взаимодействия для WindowWithEllipse.xaml
     /// </summary>
-    public partial class WindowWithImage : Window
+    public partial class WindowWithEllipse : Window
     {
         TransformCollection _transforms = new TransformCollection()
         {
@@ -27,28 +27,28 @@ namespace MagicGraphicApp
             new TranslateTransform()
         };
         TransformGroup group;
-        Image currentImage;
+        Ellipse currentEllipse;
 
         double angle = 0.0,
-               skew = 0.0, 
-               scaleX = 1.0, 
+               skew = 0.0,
+               scaleX = 1.0,
                scaleY = 1.0,
                translateX = 0.0,
                translateY = 0.0;
 
-        public WindowWithImage(Image image)
+        public WindowWithEllipse(Ellipse ellipse)
         {
             InitializeComponent();
-            currentImage = image;
+            currentEllipse = ellipse;
 
-            currentImage.Width = Width / 4.0;
-            currentImage.Height = Height / 4.0;
+            currentEllipse.Width = Width / 4.0;
+            currentEllipse.Height = Height / 4.0;
             group = new TransformGroup() { Children = new TransformCollection(_transforms) };
-            currentImage.RenderTransform = group;
-            mainCanvas.Children.Add(currentImage);
+            currentEllipse.RenderTransform = group;
+            mainCanvas.Children.Add(currentEllipse);
         }
 
-        private void MovePicture(object sender, KeyEventArgs e)
+        private void MoveEllipse(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -78,7 +78,7 @@ namespace MagicGraphicApp
                     break;
                 default:
                     group = new TransformGroup() { Children = new TransformCollection(_transforms) };
-                    currentImage.RenderTransform = group;
+                    currentEllipse.RenderTransform = group;
                     angle = 0.0; skew = 0.0; scaleX = 1.0; scaleY = 1.0; translateX = 0.0; translateY = 0.0;
                     return;
             }

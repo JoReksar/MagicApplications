@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace MagicGraphicApp
 {
     /// <summary>
-    /// Логика взаимодействия для WindowWithImage.xaml
+    /// Логика взаимодействия для WindowWithPolygon.xaml
     /// </summary>
-    public partial class WindowWithImage : Window
+    public partial class WindowWithPolygon : Window
     {
         TransformCollection _transforms = new TransformCollection()
         {
@@ -27,28 +27,28 @@ namespace MagicGraphicApp
             new TranslateTransform()
         };
         TransformGroup group;
-        Image currentImage;
+        Polygon currentPolygon;
 
         double angle = 0.0,
-               skew = 0.0, 
-               scaleX = 1.0, 
+               skew = 0.0,
+               scaleX = 1.0,
                scaleY = 1.0,
                translateX = 0.0,
                translateY = 0.0;
 
-        public WindowWithImage(Image image)
+        public WindowWithPolygon(Polygon polygon)
         {
             InitializeComponent();
-            currentImage = image;
+            currentPolygon = polygon;
 
-            currentImage.Width = Width / 4.0;
-            currentImage.Height = Height / 4.0;
+            currentPolygon.Width = Width;
+            currentPolygon.Height = Height;
             group = new TransformGroup() { Children = new TransformCollection(_transforms) };
-            currentImage.RenderTransform = group;
-            mainCanvas.Children.Add(currentImage);
+            currentPolygon.RenderTransform = group;
+            mainCanvas.Children.Add(currentPolygon);
         }
 
-        private void MovePicture(object sender, KeyEventArgs e)
+        private void MovePolygon(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -78,10 +78,14 @@ namespace MagicGraphicApp
                     break;
                 default:
                     group = new TransformGroup() { Children = new TransformCollection(_transforms) };
-                    currentImage.RenderTransform = group;
+                    currentPolygon.RenderTransform = group;
                     angle = 0.0; skew = 0.0; scaleX = 1.0; scaleY = 1.0; translateX = 0.0; translateY = 0.0;
                     return;
             }
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            currentPolygon.Points.Add(e.GetPosition(null));
         }
     }
 }

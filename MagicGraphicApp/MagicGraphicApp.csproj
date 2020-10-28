@@ -55,8 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowWithEllipse.xaml.cs">
+      <DependentUpon>WindowWithEllipse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowWithImage.xaml.cs">
       <DependentUpon>WindowWithImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowWithPolygon.xaml.cs">
+      <DependentUpon>WindowWithPolygon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowWithRectangle.xaml.cs">
+      <DependentUpon>WindowWithRectangle.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,7 +79,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowWithEllipse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowWithImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowWithPolygon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowWithRectangle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
