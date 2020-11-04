@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MagicTextWord"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*">
+            </RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ToolBar Name="toolBar" Grid.Row="0" Width="Auto" Height="Auto">
+            <Button Name="bold" Content="Ж" ToolTip="Bold: Ctrl + B" FontFamily="Times New Roman Bold" Click="ChangeBoldState" Width="35" Height="35" Margin="5, 0, 0, 0"/>
+            <Button Name="italic" Content="К" ToolTip="Italic: Ctrl + I" FontFamily="Times New Roman Italic" Click="ChangeItalicState" Width="35" Height="35" Margin="5, 0, 0, 0"/>
+            <Button Name="underline" Content="П" ToolTip="Underline: Ctrl + U" FontFamily="Times New Roman" Click="ChangeUnderlineState" Width="35" Height="35" Margin="5, 0, 0, 0"/>
+            
+            <Slider Name="fontSize" Minimum="1" Maximum="65" Interval="2" Value="19" Width="450" Height="25" Margin="10, 5, 0, 0"/>
+            <ComboBox Name="fontFamily" FontFamily="Times New Roman" SelectedValue="Times New Roman" HorizontalAlignment="Stretch" Width="175" Height="20" Margin="5, 0, 0, 0"/>
+            
+            <TextBlock MouseDown="RiddleJacquesFresco">
+                <Bold>Запустить Загадку от Жака Фреско.</Bold>
+            </TextBlock>
+        </ToolBar>
+
+        <RichTextBox Name="userText" Grid.Row="1" FontFamily="Times New Roman" FontSize="19" Width="Auto" Height="Auto" Block.LineHeight="1" />
     </Grid>
 </Window>
