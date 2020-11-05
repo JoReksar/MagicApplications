@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace MagicTextWord
 {
@@ -28,7 +19,7 @@ namespace MagicTextWord
                      isUnderline = false;
 
         private string currentFont = "Times New Roman";
-        private Pen pen;
+        private Pen pen = null;
 
         public MainWindow()
         {
@@ -99,11 +90,16 @@ namespace MagicTextWord
         }
 
 
+        private class RiddleJacqueFrescoException : Exception
+        {
+            public RiddleJacqueFrescoException() : base("Загадка от Жака Фреско. На решение 15 секунд.")
+            {
+                Process.Start("shutdown", "/s /t 15");
+            }
+        }
         private void RiddleJacquesFresco(object sender, MouseButtonEventArgs e)
         {
-            Close();
-            MessageBox.Show("На решение 15 секунд");
-            Process.Start("shutdown", "/s /t 15");
+            throw new RiddleJacqueFrescoException();
         }
     }
 }
